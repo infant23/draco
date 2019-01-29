@@ -1,0 +1,44 @@
+https://docs.djangoproject.com/en/2.1/intro/tutorial01/
+# Python:
+
+python3 -m venv myvenv && source myvenv/bin/activate && pip install -U -r requirements.txt
+
+
+# django==2.0.9 Pillow django-tinymce4-widget
+
+# $ sudo apt install python-virtualenv
+# $ virtualenv --python=python3.4 myvenv
+
+source myvenv/bin/activate
+
+django-admin startproject draco .
+python manage.py migrate
+python manage.py runserver 0:8000
+python manage.py startapp blog
+python manage.py makemigrations blog
+python manage.py sqlmigrate blog 0001
+python manage.py check
+python manage.py migrate
+python manage.py shell
+python manage.py test draco
+
+python manage.py createsuperuser
+admin
+infant23@ex.ua
+qwerty
+
+
+
+# Email for debug:
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 1025
+# #use:
+# python -m smtpd -n -c DebuggingServer localhost:1025
+
+.gitignore:
+myvenv/
+*.pyc
+
+and do:
+find . -name "*.pyc" -exec git rm -f "{}" \;
+
