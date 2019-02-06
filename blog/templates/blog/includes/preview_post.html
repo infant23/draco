@@ -1,0 +1,8 @@
+<div>
+	<a href="{{ post.get_detail_url }}">{{ post.title }}</a>
+	{{ post.preview|safe }}
+	{% for tag in post.tags.all %}
+		{% include 'blog/includes/tag.html' %}
+	{% endfor %}
+	<a href="{{ post.get_detail_url }}">Detail</a>
+</div>

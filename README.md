@@ -29,4 +29,4 @@ Login:
 		admin
 
 Pass:
-		qwerty
+		q1w2e3r4

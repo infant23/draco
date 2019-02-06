@@ -28,7 +28,7 @@ python manage.py test draco
 python manage.py createsuperuser
 admin
 infant23@ex.ua
-qwerty
+q1w2e3r4
 
 
 

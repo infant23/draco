@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css"></style>
+	<title>
+		{% block title%}
+			Draco
+		{% endblock %}
+	</title>
+</head>
+<body>
+	<header>
+		{% block header%}
+			Header
+		{% endblock %}
+	</header>
+	<nav>
+		{% block navbar%}
+			<a href="{% url 'blog:index' %}">Blog</a>
+			{% for category in categories %}
+				<a href="{% url 'blog:index' %}?category={{ category.slug }}">{{ category.title }}</a>
+			{% endfor %}
+		{% endblock %}
+	</nav>
+	<aside>
+		{% block aside%}
+			Aside
+		{% endblock %}
+	</aside>
+	<main>
+		{% block main%}
+			Main
+		{% endblock %}
+	</main>
+	<footer>
+		{% block footer%}
+			Footer
+		{% endblock %}
+	</footer>
+</body>
+</html>
