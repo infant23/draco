@@ -1,0 +1,43 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #eee;
+}
+
+header, footer {
+	background: #aaa;
+}
+
+footer nav {
+	text-align: right;
+	padding: 15px;
+}
+
+.search-container {
+	float: right;
+}
+
+.search-container input {
+	padding: 6px;
+	margin-top: 8px;
+	font-size: 17px;
+	border: none;
+}
+
+.search-container button {
+	float: right;
+	padding: 4px 6px;
+	margin-top: 8px;
+	margin-right: 16px;
+	background: #ddd;
+	font-size: 20px;
+	border: none;
+	cursor: pointer;
+}
+
+.search-container button:hover {
+	background: #ccc;
+}

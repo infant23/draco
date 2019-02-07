@@ -17,6 +17,7 @@ class PostList(View):
     page_value = 10
 
     def get(self, request):
+        tags = Tag.objects.all()
         categories = Category.objects.all()
         search_query = request.GET.get('search', '')
         tag_query = request.GET.get('tag', '')
@@ -27,6 +28,7 @@ class PostList(View):
                 Q(preview__icontains=search_query) |
                 Q(content__icontains=search_query)
             )
+            point = 'Search result for {}'.format(search_query)
         elif tag_query:
             tag = Tag.objects.get(
                 title__iexact=tag_query
@@ -34,6 +36,7 @@ class PostList(View):
             posts = Post.objects.filter(
               tags=tag.pk
             )
+            point = tag.title
         elif category_query:
             category = Category.objects.get(
                 title__iexact=category_query
@@ -41,8 +44,10 @@ class PostList(View):
             posts = Post.objects.filter(
             	category=category.pk
             )
+            point = category.title
         else:
             posts = Post.objects.all()
+            point = 'Posts'
         paginator = Paginator(posts, self.page_value)
         page_number = request.GET.get('page', 1)
         page = paginator.get_page(page_number)
@@ -56,6 +61,8 @@ class PostList(View):
         else:
             next_url = ''
         context = {
+            'point': point,
+            'tags': tags,
             'categories': categories,
             'page_object': page,
             'is_paginated': is_paginated,
@@ -70,6 +77,7 @@ class PostDetail(View):
     model_form = CommentForm
 
     def get(self, request, pk):
+        tags = Tag.objects.all()
         categories = Category.objects.all()
         post = get_object_or_404(Post, pk__iexact=pk)
         comments = Comment.objects.filter(post=post.pk)
@@ -86,6 +94,7 @@ class PostDetail(View):
         else:
             next_url = ''
         context = {
+            'tags': tags,
             'categories': categories,
             'post': post,
             'page_object': page,

@@ -1,11 +1,17 @@
 {% extends 'blog/base_blog.html' %}
 
 {% block title %}
-	test
+	Blog
 {% endblock %}
 
+{% block breadcrumbs%}
+	<a href="{% url 'index' %}">Main</a> &raquo;
+	<a href="{% url 'blog:index' %}">Blog</a> &raquo;
+	{{ point }}
+{% endblock %}
 
 {% block main %}
+	<h3>Blog:</h3>
 	{% if page_object %}
 		{% for post in page_object.object_list %}
 			{% include 'blog/includes/preview_post.html' %}

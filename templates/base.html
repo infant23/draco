@@ -1,42 +1,72 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<style type="text/css"></style>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/grid.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+	<link href="{% static 'images/draco.png' %}" rel="icon"  type="image/x-icon">
 	<title>
-		{% block title%}
-			Draco
+		{% block title %}
+			DRACO
 		{% endblock %}
 	</title>
 </head>
 <body>
 	<header>
-		{% block header%}
-			Header
-		{% endblock %}
+		<nav>
+			<ul class="navbar logo">
+				<li>
+					<a class="logo" href="{% url 'index' %}">
+						<img class="logo" src="{% static 'images/draco.png' %}" alt="DRACO" title="DRACO">
+					</a>
+				</li>
+				<li class="dropdown-button"><a href="{% url 'blog:index' %}">Blog</a>
+					<ul class="dropdown-content point">
+						{% for category in categories %}
+							<a href="{% url 'blog:index' %}?category={{ category.slug }}">{{ category.title }}</a>
+						{% endfor %}
+					</ul>
+				</li>
+				<li>
+					<a href="{% url 'calc:index' %}">Cals</a>
+				</li>
+				<li>
+					<a href="{% url 'shop:index' %}">Shop</a>
+				</li>
+				<li>
+					<a href="{% url 'mail:index' %}">Contacts</a>
+				</li>
+			</ul>
+			<div class="search-container">
+				<form action="{% url 'blog:index' %}" method="get">
+					<input type="text" placeholder="Search..." name="search">
+					<button class="btn" type="submit"><span class="icon">&#xE116;</span></button>
+				</form>
+			</div>
+		</nav>
 	</header>
-	<nav>
-		{% block navbar%}
-			<a href="{% url 'blog:index' %}">Blog</a>
-			{% for category in categories %}
-				<a href="{% url 'blog:index' %}?category={{ category.slug }}">{{ category.title }}</a>
-			{% endfor %}
-		{% endblock %}
-	</nav>
 	<aside>
 		{% block aside%}
 			Aside
 		{% endblock %}
 	</aside>
 	<main>
+		{% block breadcrumbs%}
+			<a href="{% url 'index' %}">Main</a>
+		{% endblock %}
+
 		{% block main%}
 			Main
 		{% endblock %}
 	</main>
 	<footer>
-		{% block footer%}
-			Footer
-		{% endblock %}
+		<nav>
+			<p><a href="mailto:infant23@ex.ua">infant23@ex.ua</a> <span class="copyleft">&copy;</span> 2019</p>
+		</nav>
 	</footer>
 </body>
 </html>

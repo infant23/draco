@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
-{% block main %}
-	Hello
+{% block aside %}
+	<h3>Tag cloud:</h3>
+	{% for tag in tags %}
+		{% include 'blog/includes/tag.html' %}
+	{% endfor %}
+{% endblock %}
+
+{% block breadcrumbs%}
+	<a href="{% url 'index' %}">Main</a> &raquo; 
+	Blog
 {% endblock %}

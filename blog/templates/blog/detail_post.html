@@ -1,5 +1,16 @@
 {% extends 'blog/base_blog.html' %}
 
+{% block title %}
+	{{ post.title }}
+{% endblock %}
+
+{% block breadcrumbs%}
+	<a href="{% url 'index' %}">Main</a> &raquo;
+	<a href="{% url 'blog:index' %}">Blog</a> &raquo;
+	<a href="{% url 'blog:index' %}?category={{ post.category.slug }}">{{ post.category.title }}</a> &raquo;
+	{{ post.title }}
+{% endblock %}
+
 {% block main %}
 	<h3>{{ post.title }}</h3>
 	<p>{{ post.content|safe }}</p>

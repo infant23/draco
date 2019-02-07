@@ -1,0 +1,21 @@
+@font-face {
+	font-family: LigatureSymbols;
+	src: url(../fonts/LigatureSymbols-2.11.ttf);
+}
+
+body {
+	color: #333;
+	font-family: serif;
+}
+
+span.icon {
+	font-family: LigatureSymbols;
+	font-weight: normal;
+	margin: 5px;
+}
+
+span.copyleft {
+	font-family: sans-serif;
+	display: inline-block;
+	transform: rotate(180deg);
+}

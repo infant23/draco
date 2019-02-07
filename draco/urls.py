@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from .views import redirect_blog
 
 urlpatterns = [
-	path('', redirect_blog),
+	path('', redirect_blog, name='index'),
 	path('admin/', admin.site.urls),
 	path('blog/', include('blog.urls')),
 	path('calc/', include('calc.urls')),
