@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from tinymce import TinyMCE
-from .tinymce_config import TINYMCE_POST_CONFIG, TINYMCE_COMMENT_CONFIG 
+from draco.settings import TINYMCE_COMMENT_CONFIG 
 
 from .models import Category, Post, Tag, Comment
 

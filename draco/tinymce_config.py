@@ -3,7 +3,7 @@ from urllib.parse import urljoin
 
 
 # TinyMCE configuration
-TINYMCE_POST_CONFIG = {
+TINYMCE_DEFAULT_CONFIG = {
     'selector': 'textarea',
     # 'language': 'en-GB',
     # 'language_url': urljoin(STATIC_URL, 'languages/en_GB.js'),
@@ -66,6 +66,7 @@ TINYMCE_COMMENT_CONFIG = {
     'toolbar1': 'undo redo | bold italic underline | charmap codesample link blockquote emoticons | preview',
     'toolbar2': '',
     'codesample_languages': [
+        {'text': 'bash', 'value': 'bash'},
         {'text': 'C-like', 'value': 'clike'},
         {'text': 'C++', 'value': 'cpp'},
         {'text': 'Makefile', 'value': 'makefile'},
