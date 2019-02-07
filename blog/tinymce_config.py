@@ -29,6 +29,7 @@ TINYMCE_POST_CONFIG = {
     'toolbar1': 'alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | searchreplace visualblocks fullscreen preview code',
     'toolbar2': 'bold italic underline | link anchor image blockquote charmap hr codesample',
     'codesample_languages': [
+        {'text': 'bash', 'value': 'bash'},
         {'text': 'C-like', 'value': 'clike'},
         {'text': 'C++', 'value': 'cpp'},
         {'text': 'Makefile', 'value': 'makefile'},
@@ -63,6 +64,7 @@ TINYMCE_COMMENT_CONFIG = {
     'menubar': False,
     'statusbar': True,
     'toolbar1': 'undo redo | bold italic underline | charmap codesample link blockquote emoticons | preview',
+    'toolbar2': '',
     'codesample_languages': [
         {'text': 'C-like', 'value': 'clike'},
         {'text': 'C++', 'value': 'cpp'},

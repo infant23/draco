@@ -31,20 +31,21 @@ class PostList(View):
             point = 'Search result for {}'.format(search_query)
         elif tag_query:
             tag = Tag.objects.get(
-                title__iexact=tag_query
+                slug__iexact=tag_query
             )
             posts = Post.objects.filter(
               tags=tag.pk
             )
             point = tag.title
+            point = 'Tag {}'.format(tag.title)
         elif category_query:
             category = Category.objects.get(
-                title__iexact=category_query
+                slug__iexact=category_query
             )
             posts = Post.objects.filter(
             	category=category.pk
             )
-            point = category.title
+            point = 'Category {}'.format(category.title)
         else:
             posts = Post.objects.all()
             point = 'Posts'

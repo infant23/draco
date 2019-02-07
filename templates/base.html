@@ -3,11 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	{% include 'declaration_css.html' %}
+	{% include 'declaration_js.html' %}
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+<!-- 	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/grid.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}"> -->
 	<link href="{% static 'images/draco.png' %}" rel="icon"  type="image/x-icon">
 	<title>
 		{% block title %}

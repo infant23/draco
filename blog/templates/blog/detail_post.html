@@ -13,7 +13,8 @@
 
 {% block main %}
 	<h3>{{ post.title }}</h3>
-	<p>{{ post.content|safe }}</p>
+	{{ post.preview|safe }}
+	{{ post.content|safe }}
 	<p>{{ post.author }}</p>
 	<p>{{ post.pub_date }}</p>
 	{% for tag in post.tags.all %}

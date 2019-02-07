@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block main %}
-	<h3>Blog:</h3>
+	<h3>{{ point }}:</h3>
 	{% if page_object %}
 		{% for post in page_object.object_list %}
 			{% include 'blog/includes/preview_post.html' %}
