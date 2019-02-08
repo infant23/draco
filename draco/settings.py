@@ -132,5 +132,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'upload/')
 MEDIA_URL = '/upload/'
 
 # Email settings SMTP:
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'testforbkc'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_SSL = True

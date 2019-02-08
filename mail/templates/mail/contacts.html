@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block aside %}
+	<h3>Tag cloud:</h3>
+	{% for tag in tags %}
+		{% include 'blog/includes/tag.html' %}
+	{% endfor %}
+{% endblock %}
+
+{% block breadcrumbs%}
+	<a href="{% url 'index' %}">DRACO</a> &raquo; 
+	Contacts
+{% endblock %}
+
+{% block main %}
+	<h3>To contact me send me fedback:</h3>
+	<form action="{% url 'mail:index' %}" method="post">
+		{% csrf_token %}
+		<input type="text" placeholder="Message subject" name="subject">
+		<input type="email" placeholder="Your email" name="sender">
+		<textarea rows="10" cols="45" placeholder="Enter message here..." name="message"></textarea>
+		<button class="btn" type="submit">Send</button>
+	</form>
+{% endblock %}
